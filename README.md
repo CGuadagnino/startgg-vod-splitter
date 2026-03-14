@@ -72,43 +72,6 @@ npm run build   # static export to ./out
   - Native file/folder dialogs via `tauri-plugin-dialog`
 - **Web fallback:** All client-side except start.gg fetch (needs a proxy)
 
-## Project layout
-
-```
-src/
-  app/
-    page.tsx                    # main app page (state orchestration)
-    layout.tsx                  # root layout
-    globals.css                 # tailwind + dark mode styles
-  components/
-    SettingsPanel.tsx            # persistent folder paths + OS config
-    EventInput.tsx              # slug + tournament name inputs
-    StationSelector.tsx         # station dropdown
-    VodPicker.tsx               # native file picker (Tauri) / browser fallback
-    RecordingStart.tsx          # date/time picker for recording start
-    SetList.tsx                 # scrollable set list container
-    SetRow.tsx                  # individual editable set row
-    CutList.tsx                 # computed cuts display
-    SplitPanel.tsx              # Tauri-only: ffmpeg split with progress UI
-    ExportPanel.tsx             # JSON, CSV, ffmpeg script exports
-  lib/
-    types.ts                    # shared TypeScript types
-    startgg.ts                  # GraphQL client (Tauri invoke / web fetch)
-    vod.ts                      # cut computation + time math
-    ffmpeg.ts                   # ffmpeg command/script generation (web export)
-    tauri.ts                    # Tauri-specific: native dialogs, split, paths
-    storage.ts                  # localStorage helpers
-  hooks/
-    useSettings.ts              # React hook for persistent settings
-src-tauri/
-  src/
-    lib.rs                      # Rust backend: Tauri commands
-    main.rs                     # entry point
-  binaries/                     # ffmpeg sidecar binary (per-platform)
-  capabilities/default.json     # Tauri permissions
-  tauri.conf.json               # Tauri app config
-  Cargo.toml                    # Rust dependencies
-```
 
 ## License
 
